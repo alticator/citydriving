@@ -21,6 +21,6 @@ public class CameraMove : MonoBehaviour
 
         var direction = targetObject.position - transform.position;
         var rotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation  = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 }

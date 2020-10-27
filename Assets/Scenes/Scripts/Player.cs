@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     {
         wheel1Collider.motorTorque = verticalInput * motorForce;
         wheel2Collider.motorTorque = verticalInput * motorForce;
+        wheel3Collider.motorTorque = verticalInput * motorForce;
+        wheel4Collider.motorTorque = verticalInput * motorForce;
 
         brakeForce = brakes ? maximumBrakeForce : 0f;
         wheel1Collider.brakeTorque = brakeForce;
