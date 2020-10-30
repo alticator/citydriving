@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private bool respawnRequest;
+    private bool respawnToOriginRequest;
 
     private float steeringAngle;
     private bool brakes;
@@ -74,6 +75,15 @@ public class Player : MonoBehaviour
         {
             var carRotation = new Vector3(transform.rotation.x, transform.rotation.y, 0);
             transform.rotation = Quaternion.Euler(carRotation);
+            rigidbodyComponent.velocity = new Vector3(0f, 0f, 0f);
+        }
+        else if (respawnToOriginRequest)
+        {
+            var carRotation = new Vector3(transform.rotation.x, transform.rotation.y, 0);
+            var carPosition = new Vector3(0, 1, 0);
+            transform.position = carPosition;
+            transform.rotation = Quaternion.Euler(carRotation);
+            rigidbodyComponent.velocity = new Vector3(0f, 0f, 0f);
         }
     }
 
@@ -104,6 +114,15 @@ public class Player : MonoBehaviour
         else
         {
             respawnRequest = false;
+        }
+
+        if (Input.GetKey(KeyCode.B))
+        {
+            respawnToOriginRequest = true;
+        }
+        else
+        {
+            respawnToOriginRequest = false;
         }
     }
 
