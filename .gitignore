@@ -9,6 +9,7 @@
 !/[Aa]ssets/**/*.meta
 /[Aa]ssets/Plugins/Editor/JetBrains*
 .vs/
+.vscode/
 .gradle/
 ExportedObj/
 .consulo/
