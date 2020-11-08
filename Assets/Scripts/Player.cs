@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour
     public Transform wheel2Transform;
     public Transform wheel3Transform;
     public Transform wheel4Transform;
+
+    [Header("Speedometer")]
+    public Text speedometer;
 
     void Motor()
     {
@@ -76,6 +80,7 @@ public class Player : MonoBehaviour
             var carRotation = new Vector3(transform.rotation.x, transform.rotation.y, 0);
             transform.rotation = Quaternion.Euler(carRotation);
             rigidbodyComponent.velocity = new Vector3(0f, 0f, 0f);
+
         }
         else if (respawnToOriginRequest)
         {
@@ -124,6 +129,10 @@ public class Player : MonoBehaviour
         {
             respawnToOriginRequest = false;
         }
+        
+        // Update Speedometer
+        var kph = rigidbodyComponent.velocity.magnitude * 3.6;
+        speedometer.text = kph.ToString("0") + " km/h";
     }
 
     void FixedUpdate()
