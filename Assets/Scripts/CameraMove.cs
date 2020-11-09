@@ -45,7 +45,9 @@ public class CameraMove : MonoBehaviour
         }
         else if (mapView)
         {
-            transform.position = Vector3.up * mapSize;
+            var cameraPosition = Vector3.up * mapSize;
+            cameraPosition.x += 500;
+            transform.position = cameraPosition;
             var rotation = new Vector3(90, 0, 0);
             transform.rotation = Quaternion.Euler(rotation);
         }
