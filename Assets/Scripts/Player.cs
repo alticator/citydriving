@@ -84,8 +84,8 @@ public class Player : MonoBehaviour
         }
         else if (respawnToOriginRequest)
         {
-            var carRotation = new Vector3(transform.rotation.x, transform.rotation.y, 0);
-            var carPosition = new Vector3(0, 1, 0);
+            var carRotation = new Vector3(0, 90, 0);
+            var carPosition = new Vector3(10, 1, -8);
             transform.position = carPosition;
             transform.rotation = Quaternion.Euler(carRotation);
             rigidbodyComponent.velocity = new Vector3(0f, 0f, 0f);
