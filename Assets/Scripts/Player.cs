@@ -140,6 +140,7 @@ public class Player : MonoBehaviour
         HandleRespawn();
         Motor();
         Steer();
-        UpdateWheels();
+        // UpdateWheels temporarily off for new car
+        //UpdateWheels();
     }
 }
